@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+///
 typedef NS_ENUM(NSInteger, NinaCycleStyle) {
     NinaCycleStyleHorizontal = 0,
     NinaCycleStyleVertical = 1,
