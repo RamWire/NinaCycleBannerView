@@ -7,7 +7,7 @@
 //
 ///
 #import "NinaBannerView.h"
-#import "TapViewController.h"
+//#import "TapViewController.h"
 #import "UIView+ViewController.h"
 #import "UIImageView+WebCache.h"
 
@@ -273,9 +273,9 @@
 - (void)tapAction {
     
     NSLog(@"触摸了");
-    TapViewController *tapVC = [TapViewController new];
-    tapVC.urlStr = _bannerUrlArray[currentPage - 1];
-    [self.viewController.navigationController pushViewController:tapVC animated:YES];
+//    TapViewController *tapVC = [TapViewController new];
+//    tapVC.urlStr = _bannerUrlArray[currentPage - 1];
+//    [self.viewController.navigationController pushViewController:tapVC animated:YES];
 }
 
 @end
