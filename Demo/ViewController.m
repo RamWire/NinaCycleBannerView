@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "NinaBannerView.h"
-
+//
 //全屏宽和高大小
 #define FUll_VIEW_WIDTH ([[UIScreen mainScreen] bounds].size.width)
 #define FUll_VIEW_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
