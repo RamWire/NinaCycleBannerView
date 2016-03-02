@@ -51,6 +51,7 @@ You need add "**NinaCycleBanner.h**" to your project.
                           @"url6",
                           @"url7"
                           ];
+    /**<  你只要将上述的网络或本地的数组传入一个即可   **/
     NinaBannerView *bannerView = [[NinaBannerView alloc] initWithFrame:CGRectMake(0, 0, FUll_VIEW_WIDTH, FUll_VIEW_HEIGHT / 2) WithCycleStyle:NinaCycleStyleHorizontal WithBannerSource:NinaBannerStyleOnlyWebSource WithBannerArray:myWebArray];
 ```
 ### Other Settings
@@ -64,3 +65,10 @@ You need add "**NinaCycleBanner.h**" to your project.
     bannerView.bannerUrlArray = urlArray;    
     [self.view addSubview:bannerView];
 ```
+
+## Opensource libraries used
+- [SDWebImage](https://github.com/rs/SDWebImage)
+
+## Licence
+
+This project uses MIT License.
