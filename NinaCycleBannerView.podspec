@@ -6,10 +6,9 @@ Pod::Spec.new do |s|
   s.summary  = 'A cycle banner View for iOS.'
   s.homepage = 'https://github.com/RamWire/NinaCycleBannerView'
   s.author   = { 'RamWire' => 'RamWire' }
-  s.source   = { :git => 'https://github.com/RamWire/NinaCycleBannerView.git', :tag => '0.0.1' }
-  s.platform = :ios  
+  s.source   = { :git => 'https://github.com/RamWire/NinaCycleBannerView.git', :tag => '0.0.1' } 
   s.source_files = 'NinaCycleBannerView/**/*.{h,m}'
   s.framework = 'UIKit'
   s.requires_arc  = true
-  s.dependency 'SDWebImage', '~> 3.7'
+  s.dependency 'SDWebImage'
 end
