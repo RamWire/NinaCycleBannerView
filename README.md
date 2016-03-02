@@ -11,7 +11,7 @@
 * 类似淘宝中间的轮播公告，以后会添加相关Label选项
 
 ## Install
-- Download Zip from here,drag file 'NinaCycleBannerView'to your project.
+- Download Zip from here,drag file '**NinaCycleBannerView**'to your project.
 - [CocoaPods](https://cocoapods.org/)：
 ```
 pod 'NinaCycleBannerView','~> 0.0.2' 
@@ -19,7 +19,7 @@ pod 'NinaCycleBannerView','~> 0.0.2'
 Before using Cocoapods,please `pod search NinaCycleBannerView`,if can't search it,please `pod setup`.
 
 ## Usage
-You need add "**NinaCycleBanner.h**" to your project.
+You need add '**NinaCycleBanner.h**' to your project.
 ```objc
     /**<  本地图片   **/
     NSArray *myLocalArray = @[
