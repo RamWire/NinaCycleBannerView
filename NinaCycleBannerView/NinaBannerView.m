@@ -149,7 +149,7 @@
     _bannerUrlArray = bannerUrlArray;
 }
 - (void)setShowPageControl:(BOOL)showPageControl {
-    if (showPageControl == YES) {
+    if (showPageControl == YES && isScrollHori == 2) {
         [self addSubview:self.pageControl];
     }
 }
