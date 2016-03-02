@@ -5,7 +5,6 @@
 //  Created by RamWire on 16/2/26.
 //  Copyright © 2016年 RamWire. All rights reserved.
 //
-///
 #import "NinaBannerView.h"
 #import "UIView+ViewController.h"
 #import "UIImageView+WebCache.h"
