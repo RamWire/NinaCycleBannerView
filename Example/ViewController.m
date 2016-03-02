@@ -57,7 +57,7 @@
                           @"http://stackoverflow.com/",
                           @"http://www.jpfans.com/"
                           ];
-    NinaBannerView *bannerView = [[NinaBannerView alloc] initWithFrame:CGRectMake(0, 0, FUll_VIEW_WIDTH, FUll_VIEW_HEIGHT / 2) WithCycleStyle:NinaCycleStyleVertical WithBannerSource:NinaBannerStyleLocalSource WithBannerArray:myLocalArray];
+    NinaBannerView *bannerView = [[NinaBannerView alloc] initWithFrame:CGRectMake(0, 0, FUll_VIEW_WIDTH, FUll_VIEW_HEIGHT / 2) WithCycleStyle:NinaCycleStyleHorizontal WithBannerSource:NinaBannerStyleLocalSource WithBannerArray:myLocalArray];
     bannerView.showPageControl = YES;
     /**<  如果是在Horizontal下，可以对pageControl的选中未选中颜色进行设置   **/
     bannerView.currentPageIndicatorTintColor = [UIColor blackColor];
