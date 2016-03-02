@@ -231,7 +231,6 @@
         currentPage = (NSInteger)((scrollView.contentOffset.x) / SELFWIDTH);
         self.pageControl.currentPage = currentPage - 1;
         CGFloat yourPage = (CGFloat)(scrollView.contentOffset.x) / SELFWIDTH;
-        NSLog(@"现在是第%lf页",yourPage);
         if (yourPage == (totalNumber + 1)) {
             [scrollView setContentOffset:CGPointMake(SELFWIDTH, 0) animated:NO];
         }
