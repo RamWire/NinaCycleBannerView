@@ -3,7 +3,7 @@
 * 几行代码搞定广告轮播图，横向纵向均可，用法简单，支持网络及本地图片轮播，并支持相关的图片点击事件。
 
 ## <a id="横向展示 Horizontal Scroll"></a> 横向展示 Horizontal Scroll
-![(横向展示 Horizontal Scroll)](https://github.com/RamWire/NinaCycleBannerView/blob/master/Example/gifs/NinaCycleBannerView1.gif) 
+![(横向展示 Horizontal Scroll)](https://github.com/RamWire/NinaCycleBannerView/blob/master/Example/gifs/NinaCycleBannerView3.gif) 
 * 可以选择是否显示下方的pagecontrol，颜色可调节
 
 ## <a id="纵向展示 Vertical Scroll"></a> 纵向展示 Vertical Scroll
