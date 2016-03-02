@@ -94,6 +94,8 @@
 				4DC70A3B1C85BF8200635B60 /* Category */,
 				4DC70A3E1C85BF8200635B60 /* NinaBannerView.h */,
 				4DC70A3F1C85BF8200635B60 /* NinaBannerView.m */,
+				76BBB4641C85492E00D118AF /* TapViewController.h */,
+				76BBB4651C85492E00D118AF /* TapViewController.m */,
 			);
 			path = NinaCycleBannerView;
 			sourceTree = SOURCE_ROOT;
@@ -135,8 +137,6 @@
 				4DC70A3A1C85BF8200635B60 /* NinaCycleBannerView */,
 				767048961C80349200F8C935 /* AppDelegate.h */,
 				767048971C80349200F8C935 /* AppDelegate.m */,
-				76BBB4641C85492E00D118AF /* TapViewController.h */,
-				76BBB4651C85492E00D118AF /* TapViewController.m */,
 				767048991C80349200F8C935 /* ViewController.h */,
 				7670489A1C80349200F8C935 /* ViewController.m */,
 				7670489F1C80349300F8C935 /* Assets.xcassets */,
