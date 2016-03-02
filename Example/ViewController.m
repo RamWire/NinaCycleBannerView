@@ -29,14 +29,14 @@
     self.view.backgroundColor = [UIColor whiteColor];
     /**<  本地图片   **/
     NSArray *myLocalArray = @[
-                         @"1",
-                         @"2",
-                         @"3",
-                         @"4",
-                         @"5",
-                         @"6",
-                         @"7"
-                         ];
+                              @"1.jpg",
+                              @"2.jpg",
+                              @"3.jpg",
+                              @"4.jpg",
+                              @"5.jpg",
+                              @"6.jpg",
+                              @"7.jpg"
+                            ];
     /**<  网络图片   **/
     NSArray *myWebArray = @[
                          @"http://z.abang.com/d/dongman/1/3/3/X/-/-/duolaameng.jpg",
@@ -57,7 +57,7 @@
                           @"http://stackoverflow.com/",
                           @"http://www.jpfans.com/"
                           ];
-    NinaBannerView *bannerView = [[NinaBannerView alloc] initWithFrame:CGRectMake(0, 0, FUll_VIEW_WIDTH, FUll_VIEW_HEIGHT / 2) WithCycleStyle:NinaCycleStyleHorizontal WithBannerSource:NinaBannerStyleOnlyWebSource WithBannerArray:myWebArray];
+    NinaBannerView *bannerView = [[NinaBannerView alloc] initWithFrame:CGRectMake(0, 0, FUll_VIEW_WIDTH, FUll_VIEW_HEIGHT / 2) WithCycleStyle:NinaCycleStyleVertical WithBannerSource:NinaBannerStyleLocalSource WithBannerArray:myLocalArray];
     bannerView.showPageControl = YES;
     /**<  如果是在Horizontal下，可以对pageControl的选中未选中颜色进行设置   **/
     bannerView.currentPageIndicatorTintColor = [UIColor blackColor];
