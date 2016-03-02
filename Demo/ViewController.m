@@ -63,8 +63,7 @@
     bannerView.currentPageIndicatorTintColor = [UIColor blackColor];
     bannerView.pageIndicatorTintColor = [UIColor yellowColor];
     /**<  如果有点击图片时间的需求，可以在这里传入数据   **/
-    bannerView.bannerUrlArray = urlArray;
-    
+    bannerView.bannerUrlArray = urlArray;    
     [self.view addSubview:bannerView];
 }
 

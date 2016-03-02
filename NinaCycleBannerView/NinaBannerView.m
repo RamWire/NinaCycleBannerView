@@ -7,6 +7,7 @@
 //
 ///
 #import "NinaBannerView.h"
+#import "TapViewController.h"
 #import "UIView+ViewController.h"
 #import "UIImageView+WebCache.h"
 
@@ -19,7 +20,6 @@
 #define FUll_VIEW_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
 //十六进制颜色值
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
-
 
 @implementation NinaBannerView {
     CGFloat SELFWIDTH;
@@ -270,6 +270,9 @@
 - (void)tapAction {
     
     NSLog(@"触摸了");
+    TapViewController *tapVC = [TapViewController new];
+    tapVC.urlStr = _bannerUrlArray[currentPage - 1];
+    [self.viewController.navigationController pushViewController:tapVC animated:YES];
 }
 
 @end
