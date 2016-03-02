@@ -231,7 +231,6 @@
         currentPage = (NSInteger)((scrollView.contentOffset.x) / SELFWIDTH);
         self.pageControl.currentPage = currentPage - 1;
         CGFloat yourPage = (CGFloat)(scrollView.contentOffset.x) / SELFWIDTH;
-        NSLog(@"现在是第%lf页",yourPage);
         if (yourPage == (totalNumber + 1)) {
             [scrollView setContentOffset:CGPointMake(SELFWIDTH, 0) animated:NO];
         }
@@ -241,7 +240,6 @@
     }else if (isScrollHori == 3){
         currentPage = (NSInteger)((scrollView.contentOffset.y) / SELFHEIGHT);
         CGFloat horiPage = (scrollView.contentOffset.y) / SELFHEIGHT;
-        NSLog(@"现在是第%f页，共%li页",horiPage,totalNumber + 1);
         if (horiPage == totalNumber + 1) {
             [scrollView setContentOffset:CGPointMake(0, SELFHEIGHT) animated:NO];
         }
