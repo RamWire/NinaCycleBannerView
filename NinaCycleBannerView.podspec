@@ -10,5 +10,6 @@ Pod::Spec.new do |s|
   s.platform = :ios  
   s.source_files = 'NinaCycleBannerView/**/*.{h,m}'
   s.framework = 'UIKit'
-  s.dependency 'SDWebImage'
+  s.requires_arc  = true
+  s.dependency 'SDWebImage', '~> 3.7'
 end
