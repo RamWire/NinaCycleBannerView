@@ -8,16 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		6D1A615F0E0B6642EBB2EE1A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50FED6FBED783F22D758C38C /* libPods.a */; };
+		764FF73E1C88134700992C54 /* UIView+ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 764FF7391C88134700992C54 /* UIView+ViewController.m */; };
+		764FF73F1C88134700992C54 /* NinaBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 764FF73B1C88134700992C54 /* NinaBannerView.m */; };
+		764FF7401C88134700992C54 /* TapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 764FF73D1C88134700992C54 /* TapViewController.m */; };
 		767048AE1C80349300F8C935 /* NinaCycleBannerViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 767048AD1C80349300F8C935 /* NinaCycleBannerViewTests.m */; };
 		767048B91C80349300F8C935 /* NinaCycleBannerViewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 767048B81C80349300F8C935 /* NinaCycleBannerViewUITests.m */; };
-		768B78431C86E551006774D7 /* UIView+ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 768B783E1C86E551006774D7 /* UIView+ViewController.m */; };
-		768B78441C86E551006774D7 /* NinaBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 768B78401C86E551006774D7 /* NinaBannerView.m */; };
-		768B78451C86E551006774D7 /* TapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 768B78421C86E551006774D7 /* TapViewController.m */; };
 		768B78511C86E5D6006774D7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 768B78481C86E5D6006774D7 /* AppDelegate.m */; };
 		768B78521C86E5D6006774D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 768B78491C86E5D6006774D7 /* Assets.xcassets */; };
-		768B78531C86E5D6006774D7 /* NinaCycleBannerView1.gif in Resources */ = {isa = PBXBuildFile; fileRef = 768B784B1C86E5D6006774D7 /* NinaCycleBannerView1.gif */; };
-		768B78541C86E5D6006774D7 /* NinaCycleBannerView2.gif in Resources */ = {isa = PBXBuildFile; fileRef = 768B784C1C86E5D6006774D7 /* NinaCycleBannerView2.gif */; };
-		768B78551C86E5D6006774D7 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 768B784D1C86E5D6006774D7 /* Info.plist */; };
 		768B78561C86E5D6006774D7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 768B784E1C86E5D6006774D7 /* main.m */; };
 		768B78571C86E5D6006774D7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 768B78501C86E5D6006774D7 /* ViewController.m */; };
 /* End PBXBuildFile section */
@@ -43,6 +40,12 @@
 		476CFCFDB58D6C695DF05304 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		50FED6FBED783F22D758C38C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F5796B5FC4251EF4294FB39 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		764FF7381C88134700992C54 /* UIView+ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ViewController.h"; sourceTree = "<group>"; };
+		764FF7391C88134700992C54 /* UIView+ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ViewController.m"; sourceTree = "<group>"; };
+		764FF73A1C88134700992C54 /* NinaBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NinaBannerView.h; sourceTree = "<group>"; };
+		764FF73B1C88134700992C54 /* NinaBannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NinaBannerView.m; sourceTree = "<group>"; };
+		764FF73C1C88134700992C54 /* TapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapViewController.h; sourceTree = "<group>"; };
+		764FF73D1C88134700992C54 /* TapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TapViewController.m; sourceTree = "<group>"; };
 		767048901C80349200F8C935 /* NinaCycleBannerView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NinaCycleBannerView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		767048A91C80349300F8C935 /* NinaCycleBannerViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NinaCycleBannerViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		767048AD1C80349300F8C935 /* NinaCycleBannerViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NinaCycleBannerViewTests.m; sourceTree = "<group>"; };
@@ -50,17 +53,9 @@
 		767048B41C80349300F8C935 /* NinaCycleBannerViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NinaCycleBannerViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		767048B81C80349300F8C935 /* NinaCycleBannerViewUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NinaCycleBannerViewUITests.m; sourceTree = "<group>"; };
 		767048BA1C80349300F8C935 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		768B783D1C86E551006774D7 /* UIView+ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ViewController.h"; sourceTree = "<group>"; };
-		768B783E1C86E551006774D7 /* UIView+ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ViewController.m"; sourceTree = "<group>"; };
-		768B783F1C86E551006774D7 /* NinaBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NinaBannerView.h; path = ../NinaCycleBannerView/NinaBannerView.h; sourceTree = "<group>"; };
-		768B78401C86E551006774D7 /* NinaBannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NinaBannerView.m; path = ../NinaCycleBannerView/NinaBannerView.m; sourceTree = "<group>"; };
-		768B78411C86E551006774D7 /* TapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TapViewController.h; path = ../NinaCycleBannerView/TapViewController.h; sourceTree = "<group>"; };
-		768B78421C86E551006774D7 /* TapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TapViewController.m; path = ../NinaCycleBannerView/TapViewController.m; sourceTree = "<group>"; };
 		768B78471C86E5D6006774D7 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		768B78481C86E5D6006774D7 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		768B78491C86E5D6006774D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		768B784B1C86E5D6006774D7 /* NinaCycleBannerView1.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = NinaCycleBannerView1.gif; sourceTree = "<group>"; };
-		768B784C1C86E5D6006774D7 /* NinaCycleBannerView2.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = NinaCycleBannerView2.gif; sourceTree = "<group>"; };
 		768B784D1C86E5D6006774D7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		768B784E1C86E5D6006774D7 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		768B784F1C86E5D6006774D7 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -93,10 +88,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		764FF7361C88134700992C54 /* NinaCycleBannerView */ = {
+			isa = PBXGroup;
+			children = (
+				764FF7371C88134700992C54 /* Category */,
+				764FF73A1C88134700992C54 /* NinaBannerView.h */,
+				764FF73B1C88134700992C54 /* NinaBannerView.m */,
+				764FF73C1C88134700992C54 /* TapViewController.h */,
+				764FF73D1C88134700992C54 /* TapViewController.m */,
+			);
+			path = NinaCycleBannerView;
+			sourceTree = "<group>";
+		};
+		764FF7371C88134700992C54 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				764FF7381C88134700992C54 /* UIView+ViewController.h */,
+				764FF7391C88134700992C54 /* UIView+ViewController.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		767048871C80349200F8C935 = {
 			isa = PBXGroup;
 			children = (
-				767048921C80349200F8C935 /* NinaCycleBannerView */,
+				764FF7361C88134700992C54 /* NinaCycleBannerView */,
 				768B78461C86E5C1006774D7 /* Example */,
 				767048AC1C80349300F8C935 /* NinaCycleBannerViewTests */,
 				767048B71C80349300F8C935 /* NinaCycleBannerViewUITests */,
@@ -114,19 +130,6 @@
 				767048B41C80349300F8C935 /* NinaCycleBannerViewUITests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		767048921C80349200F8C935 /* NinaCycleBannerView */ = {
-			isa = PBXGroup;
-			children = (
-				768B783C1C86E551006774D7 /* Category */,
-				768B783F1C86E551006774D7 /* NinaBannerView.h */,
-				768B78401C86E551006774D7 /* NinaBannerView.m */,
-				768B78411C86E551006774D7 /* TapViewController.h */,
-				768B78421C86E551006774D7 /* TapViewController.m */,
-			);
-			name = NinaCycleBannerView;
-			path = Demo;
 			sourceTree = "<group>";
 		};
 		767048AC1C80349300F8C935 /* NinaCycleBannerViewTests */ = {
@@ -147,38 +150,18 @@
 			path = NinaCycleBannerViewUITests;
 			sourceTree = "<group>";
 		};
-		768B783C1C86E551006774D7 /* Category */ = {
-			isa = PBXGroup;
-			children = (
-				768B783D1C86E551006774D7 /* UIView+ViewController.h */,
-				768B783E1C86E551006774D7 /* UIView+ViewController.m */,
-			);
-			name = Category;
-			path = ../NinaCycleBannerView/Category;
-			sourceTree = "<group>";
-		};
 		768B78461C86E5C1006774D7 /* Example */ = {
 			isa = PBXGroup;
 			children = (
 				768B78471C86E5D6006774D7 /* AppDelegate.h */,
 				768B78481C86E5D6006774D7 /* AppDelegate.m */,
-				768B78491C86E5D6006774D7 /* Assets.xcassets */,
-				768B784A1C86E5D6006774D7 /* gifs */,
-				768B784D1C86E5D6006774D7 /* Info.plist */,
-				768B784E1C86E5D6006774D7 /* main.m */,
 				768B784F1C86E5D6006774D7 /* ViewController.h */,
 				768B78501C86E5D6006774D7 /* ViewController.m */,
+				768B78491C86E5D6006774D7 /* Assets.xcassets */,
+				768B784D1C86E5D6006774D7 /* Info.plist */,
+				768B784E1C86E5D6006774D7 /* main.m */,
 			);
 			path = Example;
-			sourceTree = "<group>";
-		};
-		768B784A1C86E5D6006774D7 /* gifs */ = {
-			isa = PBXGroup;
-			children = (
-				768B784B1C86E5D6006774D7 /* NinaCycleBannerView1.gif */,
-				768B784C1C86E5D6006774D7 /* NinaCycleBannerView2.gif */,
-			);
-			path = gifs;
 			sourceTree = "<group>";
 		};
 		A2A89974ABDCAC0EB8C756EA /* Frameworks */ = {
@@ -263,7 +246,7 @@
 		767048881C80349200F8C935 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = RamWire;
 				TargetAttributes = {
 					7670488F1C80349200F8C935 = {
@@ -304,10 +287,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				768B78551C86E5D6006774D7 /* Info.plist in Resources */,
-				768B78531C86E5D6006774D7 /* NinaCycleBannerView1.gif in Resources */,
 				768B78521C86E5D6006774D7 /* Assets.xcassets in Resources */,
-				768B78541C86E5D6006774D7 /* NinaCycleBannerView2.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,12 +360,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				764FF73F1C88134700992C54 /* NinaBannerView.m in Sources */,
 				768B78571C86E5D6006774D7 /* ViewController.m in Sources */,
+				764FF7401C88134700992C54 /* TapViewController.m in Sources */,
+				764FF73E1C88134700992C54 /* UIView+ViewController.m in Sources */,
 				768B78561C86E5D6006774D7 /* main.m in Sources */,
 				768B78511C86E5D6006774D7 /* AppDelegate.m in Sources */,
-				768B78441C86E551006774D7 /* NinaBannerView.m in Sources */,
-				768B78431C86E551006774D7 /* UIView+ViewController.m in Sources */,
-				768B78451C86E551006774D7 /* TapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

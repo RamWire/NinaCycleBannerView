@@ -100,8 +100,6 @@
             [self.ninaScrollView addSubview:bannerImageView];
         }
         self.pageControl.currentPage = 0;
-        myTimer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(scrollAction) userInfo:nil repeats:YES];
-        [[NSRunLoop currentRunLoop] addTimer:myTimer forMode:NSDefaultRunLoopMode];
     }
     if (cycleNum == 1) {
         for (NSInteger i = 0; i < (totalNumber + 2); i++) {
@@ -129,9 +127,9 @@
             }
             [self.ninaScrollView addSubview:bannerImageView];
         }
-        myTimer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(scrollAction) userInfo:nil repeats:YES];
-        [[NSRunLoop currentRunLoop] addTimer:myTimer forMode:NSDefaultRunLoopMode];
     }
+    myTimer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(scrollAction) userInfo:nil repeats:YES];
+    [[NSRunLoop currentRunLoop] addTimer:myTimer forMode:NSDefaultRunLoopMode];
 }
 
 #pragma mark - SetMethod
@@ -153,6 +151,14 @@
         [self addSubview:self.pageControl];
     }
 }
+- (void)setTimeInterval:(CGFloat)timeInterval {
+    _timeInterval = timeInterval;
+    if (myTimer) {
+        [myTimer invalidate];
+        myTimer = [NSTimer scheduledTimerWithTimeInterval:_timeInterval target:self selector:@selector(scrollAction) userInfo:nil repeats:YES];
+        [[NSRunLoop currentRunLoop] addTimer:myTimer forMode:NSDefaultRunLoopMode];
+    }
+}
 
 #pragma mark - GetMethod
 - (UIPageControl *)pageControl {
@@ -166,7 +172,6 @@
         _pageControl.currentPageIndicatorTintColor = [UIColor whiteColor];
         _pageControl.pageIndicatorTintColor = [UIColor grayColor];
         _pageControl.hidesForSinglePage = YES;
-//        [self addSubview:_pageControl];
     }
     return _pageControl;
 }
@@ -225,7 +230,7 @@
 
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-
+ 
     if (isScrollHori == 2) {
         currentPage = (NSInteger)((scrollView.contentOffset.x) / SELFWIDTH);
         self.pageControl.currentPage = currentPage - 1;
@@ -246,20 +251,22 @@
             [scrollView setContentOffset:CGPointMake(0, totalNumber * SELFHEIGHT) animated:NO];
         }
     }    
-    for (NSInteger i = 1; i < (totalNumber + 2); i++) {
-        if (isScrollHori == 2) {
-            if (scrollView.contentOffset.x == i * SELFWIDTH) {
-                [yourTimer invalidate];
-                [myTimer invalidate];
-                yourTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(scrollAction) userInfo:nil repeats:NO];
-                [[NSRunLoop currentRunLoop] addTimer:yourTimer forMode:NSDefaultRunLoopMode];
-            }
-        }else if (isScrollHori == 3){
-            if (scrollView.contentOffset.y == i * SELFHEIGHT) {
-                [yourTimer invalidate];
-                [myTimer invalidate];
-                yourTimer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(scrollAction) userInfo:nil repeats:NO];
-                [[NSRunLoop currentRunLoop] addTimer:yourTimer forMode:NSDefaultRunLoopMode];
+    if (self.timeInterval > 0) {
+        for (NSInteger i = 1; i < (totalNumber + 2); i++) {
+            if (isScrollHori == 2) {
+                if (scrollView.contentOffset.x == i * SELFWIDTH) {
+                    [yourTimer invalidate];
+                    [myTimer invalidate];
+                    yourTimer = [NSTimer scheduledTimerWithTimeInterval:self.timeInterval target:self selector:@selector(scrollAction) userInfo:nil repeats:NO];
+                    [[NSRunLoop currentRunLoop] addTimer:yourTimer forMode:NSDefaultRunLoopMode];
+                }
+            }else if (isScrollHori == 3){
+                if (scrollView.contentOffset.y == i * SELFHEIGHT) {
+                    [yourTimer invalidate];
+                    [myTimer invalidate];
+                    yourTimer = [NSTimer scheduledTimerWithTimeInterval:self.timeInterval target:self selector:@selector(scrollAction) userInfo:nil repeats:NO];
+                    [[NSRunLoop currentRunLoop] addTimer:yourTimer forMode:NSDefaultRunLoopMode];
+                }
             }
         }
     }
@@ -267,11 +274,12 @@
 
 #pragma mark - TapAction
 - (void)tapAction {
-    
     NSLog(@"触摸了");
-    TapViewController *tapVC = [TapViewController new];
-    tapVC.urlStr = _bannerUrlArray[currentPage - 1];
-    [self.viewController.navigationController pushViewController:tapVC animated:YES];
+    if (_bannerUrlArray.count > 0) {
+        TapViewController *tapVC = [TapViewController new];
+        tapVC.urlStr = _bannerUrlArray[currentPage - 1];
+        [self.viewController.navigationController pushViewController:tapVC animated:YES];
+    }
 }
 
 @end

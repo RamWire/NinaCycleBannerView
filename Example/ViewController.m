@@ -58,13 +58,16 @@
                           @"http://www.jpfans.com/"
                           ];
     NinaBannerView *bannerView = [[NinaBannerView alloc] initWithFrame:CGRectMake(0, 0, FUll_VIEW_WIDTH, FUll_VIEW_HEIGHT / 2) WithCycleStyle:NinaCycleStyleHorizontal WithBannerSource:NinaBannerStyleLocalSource WithBannerArray:myLocalArray];
+    [self.view addSubview:bannerView];
+    /**<  设置轮播图的滚动时间，如果不设置，默认为5秒   **/
+    bannerView.timeInterval = 2.0;
+    /**<  设置是否显示pageControl，如果不设置，默认不显示   **/
     bannerView.showPageControl = YES;
-    /**<  如果是在Horizontal下，可以对pageControl的选中未选中颜色进行设置   **/
+    /**<  如果是在Horizontal下，可以对pageControl的选中未选中颜色进行设置，如果不设置，默认current为白色，pageIndicatorTintColor为灰色   **/
     bannerView.currentPageIndicatorTintColor = [UIColor blackColor];
     bannerView.pageIndicatorTintColor = [UIColor yellowColor];
-    /**<  如果有点击图片时间的需求，可以在这里传入数据   **/
-    bannerView.bannerUrlArray = urlArray;    
-    [self.view addSubview:bannerView];
+    /**<  如果有点击图片时间的需求，可以在这里传入数据，如果不设置，则不会push到下一级控制器即TapViewController(此控制器可以自定制)  **/
+    bannerView.bannerUrlArray = urlArray;
 }
 
 - (void)didReceiveMemoryWarning {

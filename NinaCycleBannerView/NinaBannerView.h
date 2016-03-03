@@ -26,5 +26,6 @@ typedef NS_ENUM(NSInteger, NinaBannerSource) {
 @property (nonatomic, strong) UIColor *currentPageIndicatorTintColor; /**<  当前页点的颜色   **/
 @property (nonatomic, strong) UIColor *pageIndicatorTintColor; /**<  未选中点的颜色   **/
 @property (nonatomic, assign) BOOL showPageControl; /**<  是否要显示pagecontrol   **/
+@property (nonatomic, assign) CGFloat timeInterval; /**<  滑动间隔   **/
 
 @end
