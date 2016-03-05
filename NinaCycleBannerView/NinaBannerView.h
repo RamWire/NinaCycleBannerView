@@ -14,8 +14,9 @@ typedef NS_ENUM(NSInteger, NinaCycleStyle) {
 };
 
 typedef NS_ENUM(NSInteger, NinaBannerSource) {
-    NinaBannerStyleLocalSource = 0,
+    NinaBannerStyleOnlyLocalSource = 0,
     NinaBannerStyleOnlyWebSource = 1,
+    NinaBannerStyleOnlyTextSource = 2,
 };
 
 @interface NinaBannerView : UIView<UIScrollViewDelegate>
@@ -27,5 +28,6 @@ typedef NS_ENUM(NSInteger, NinaBannerSource) {
 @property (nonatomic, strong) UIColor *pageIndicatorTintColor; /**<  未选中点的颜色   **/
 @property (nonatomic, assign) BOOL showPageControl; /**<  是否要显示pagecontrol   **/
 @property (nonatomic, assign) CGFloat timeInterval; /**<  滑动间隔   **/
+@property (nonatomic, strong) NSArray *summaryArray; /**<  图片上的标题概要   **/
 
 @end

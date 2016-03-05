@@ -28,6 +28,7 @@
     NSTimer *yourTimer;
     NSInteger currentPage;
     NSInteger isScrollHori;
+    NSMutableArray *bannerImageArray;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame WithCycleStyle:(NinaCycleStyle)cycleStyle WithBannerSource:(NinaBannerSource)bannerSource WithBannerArray:(NSArray *)bannerArray {
@@ -39,6 +40,7 @@
         totalNumber = bannerArray.count;
         currentPage = 1;
         isScrollHori = 1;
+        bannerImageArray = [NSMutableArray array];
         [self addSubview:self.ninaScrollView];
         
         if (cycleStyle == 0) {
@@ -78,25 +80,38 @@
             UIImageView *bannerImageView = [[UIImageView alloc] initWithFrame:CGRectMake(i * SELFWIDTH, 0, SELFWIDTH, SELFHEIGHT)];
             bannerImageView.tag = i;
             bannerImageView.userInteractionEnabled = YES;
+            bannerImageView.backgroundColor = [UIColor whiteColor];
+            UILabel *loopLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, SELFWIDTH, SELFHEIGHT)];
+            loopLabel.textColor = [UIColor brownColor];
+            loopLabel.textAlignment = NSTextAlignmentCenter;
+            loopLabel.font = [UIFont systemFontOfSize:12];
+            [bannerImageView addSubview:loopLabel];
             if (i == 0) {
                 if (bannerSource == 0) {
                     bannerImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@",bannerDetail[totalNumber - 1]]];
                 }else if (bannerSource == 1) {
                     [bannerImageView sd_setImageWithURL:[NSURL URLWithString:bannerDetail[totalNumber - 1]]];
+                }else if (bannerSource == 2) {
+                    loopLabel.text = bannerDetail[totalNumber - 1];
                 }
             }else if (i == totalNumber + 1) {
                 if (bannerSource == 0) {
                     bannerImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@",bannerDetail[0]]];
                 }else if (bannerSource == 1) {
                     [bannerImageView sd_setImageWithURL:[NSURL URLWithString:bannerDetail[0]]];
+                }else if (bannerSource == 2) {
+                    loopLabel.text = bannerDetail[0];
                 }
             }else {
                 if (bannerSource == 0) {
                     bannerImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@",bannerDetail[i - 1]]];
                 }else if (bannerSource == 1) {
                     [bannerImageView sd_setImageWithURL:[NSURL URLWithString:bannerDetail[i - 1]]];
+                }else if (bannerSource == 2) {
+                    loopLabel.text = bannerDetail[i - 1];
                 }
             }
+            [bannerImageArray addObject:bannerImageView];
             [self.ninaScrollView addSubview:bannerImageView];
         }
         self.pageControl.currentPage = 0;
@@ -106,25 +121,38 @@
             UIImageView *bannerImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, i * SELFHEIGHT, SELFWIDTH, SELFHEIGHT)];
             bannerImageView.tag = i;
             bannerImageView.userInteractionEnabled = YES;
+            bannerImageView.backgroundColor = [UIColor whiteColor];
+            UILabel *loopLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, SELFWIDTH, SELFHEIGHT)];
+            loopLabel.textColor = [UIColor brownColor];
+            loopLabel.textAlignment = NSTextAlignmentCenter;
+            loopLabel.font = [UIFont systemFontOfSize:14];
+            [bannerImageView addSubview:loopLabel];
             if (i == 0) {
                 if (bannerSource == 0) {
                     bannerImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@",bannerDetail[totalNumber - 1]]];
                 }else if (bannerSource == 1) {
                     [bannerImageView sd_setImageWithURL:[NSURL URLWithString:bannerDetail[totalNumber - 1]]];
+                }else if (bannerSource == 2) {
+                    loopLabel.text = bannerDetail[totalNumber - 1];
                 }
             }else if (i == totalNumber + 1) {
                 if (bannerSource == 0) {
                     bannerImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@",bannerDetail[0]]];
                 }else if (bannerSource == 1) {
                     [bannerImageView sd_setImageWithURL:[NSURL URLWithString:bannerDetail[0]]];
+                }else if (bannerSource == 2) {
+                    loopLabel.text = bannerDetail[0];
                 }
             }else {
                 if (bannerSource == 0) {
                     bannerImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@",bannerDetail[i - 1]]];
                 }else if (bannerSource == 1) {
                     [bannerImageView sd_setImageWithURL:[NSURL URLWithString:bannerDetail[i - 1]]];
+                }else if (bannerSource == 2) {
+                    loopLabel.text = bannerDetail[i - 1];
                 }
             }
+            [bannerImageArray addObject:bannerImageView];
             [self.ninaScrollView addSubview:bannerImageView];
         }
     }
@@ -157,6 +185,27 @@
         [myTimer invalidate];
         myTimer = [NSTimer scheduledTimerWithTimeInterval:_timeInterval target:self selector:@selector(scrollAction) userInfo:nil repeats:YES];
         [[NSRunLoop currentRunLoop] addTimer:myTimer forMode:NSDefaultRunLoopMode];
+    }
+}
+- (void)setSummaryArray:(NSArray *)summaryArray {
+    _summaryArray = summaryArray;
+    for (NSInteger i = 0; i < (totalNumber + 2); i++) {
+        UIImageView *backGroundView = (UIImageView *)bannerImageArray[i];
+        UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, SELFHEIGHT - 30.0, SELFWIDTH, 30.0)];
+        titleView.backgroundColor = [UIColor blackColor];
+        titleView.alpha = 0.5;
+        [backGroundView addSubview:titleView];
+        //在视图上加入标题
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(15.0, 2.5, SELFWIDTH - 30.0, 25.0)];
+        label.textColor = [UIColor greenColor];
+        if (i == 0) {
+            label.text = _summaryArray[totalNumber - 1];
+        }else if (i == totalNumber + 1) {
+            label.text = _summaryArray[0];
+        }else {
+            label.text = _summaryArray[i - 1];
+        }
+        [titleView addSubview:label];
     }
 }
 
@@ -242,7 +291,8 @@
             [scrollView setContentOffset:CGPointMake(totalNumber * SELFWIDTH, 0) animated:NO];
         }
     }else if (isScrollHori == 3){
-        currentPage = (NSInteger)((scrollView.contentOffset.y) / SELFHEIGHT);
+        /**<  存在的问题，需要进行加1才能使scrollview loop起来，可能存在误差   **/
+        currentPage = (NSInteger)((scrollView.contentOffset.y + 1) / SELFHEIGHT);
         CGFloat horiPage = (scrollView.contentOffset.y) / SELFHEIGHT;
         if (horiPage == totalNumber + 1) {
             [scrollView setContentOffset:CGPointMake(0, SELFHEIGHT) animated:NO];
