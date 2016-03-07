@@ -9,13 +9,18 @@
 #import <UIKit/UIKit.h>
 
 typedef NS_ENUM(NSInteger, NinaCycleStyle) {
+    /**<  横向轮播   **/
     NinaCycleStyleHorizontal = 0,
+    /**<  纵向轮播   **/
     NinaCycleStyleVertical = 1,
 };
 
 typedef NS_ENUM(NSInteger, NinaBannerSource) {
+    /**<  图片源来自本地   **/
     NinaBannerStyleOnlyLocalSource = 0,
+    /**<  图片原来自网络   **/
     NinaBannerStyleOnlyWebSource = 1,
+    /**<  文本源，不显示图片   **/
     NinaBannerStyleOnlyTextSource = 2,
 };
 

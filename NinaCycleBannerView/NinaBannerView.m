@@ -209,7 +209,7 @@
     }
 }
 
-#pragma mark - GetMethod
+#pragma mark - LazyLoad
 - (UIPageControl *)pageControl {
     
     if (!_pageControl) {
