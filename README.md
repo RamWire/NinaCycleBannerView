@@ -14,7 +14,7 @@
 - Download Zip from here,drag file '**NinaCycleBannerView**'to your project.
 - [CocoaPods](https://cocoapods.org/)：
 ```
-pod 'NinaCycleBannerView','~> 0.0.3' 
+pod 'NinaCycleBannerView','~> 0.0.4' 
 ```
 Before using Cocoapods,please `pod search NinaCycleBannerView`,if can't search it,please `pod setup`.
 
