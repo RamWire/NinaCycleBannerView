@@ -73,10 +73,10 @@
                                @"第六张概要",
                                @"第七张概要"
                                ];
-    NinaBannerView *bannerView = [[NinaBannerView alloc] initWithFrame:CGRectMake(0, 0, FUll_VIEW_WIDTH, FUll_VIEW_HEIGHT / 8) WithCycleStyle:NinaCycleStyleHorizontal WithBannerSource:NinaBannerStyleOnlyLocalSource WithBannerArray:myLocalArray];
+    NinaBannerView *bannerView = [[NinaBannerView alloc] initWithFrame:CGRectMake(0, 50, FUll_VIEW_WIDTH, FUll_VIEW_HEIGHT / 8) WithCycleStyle:NinaCycleStyleVertical WithBannerSource:NinaBannerStyleOnlyTextSource WithBannerArray:textLoopArray];
     [self.view addSubview:bannerView];
     /**<  设置图片上的标题概要，如果不设置，默认不显示，此选项和是否显示pageControl在显示上可能会有冲突，所以在美观上面可能需要二者取一   **/
-    bannerView.summaryArray = summaryArray;
+//    bannerView.summaryArray = summaryArray;
     /**<  设置轮播图的滚动时间，如果不设置，默认为5秒   **/
     bannerView.timeInterval = 2.0;
     /**<  设置是否显示pageControl，如果不设置，默认不显示   **/
@@ -86,11 +86,6 @@
     bannerView.pageIndicatorTintColor = [UIColor yellowColor];
     /**<  如果有点击图片时间的需求，可以在这里传入数据，如果不设置，则不会push到下一级控制器即TapViewController(此控制器可以自定制)  **/
     bannerView.bannerUrlArray = urlArray;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

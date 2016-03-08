@@ -13,6 +13,7 @@
 @interface NinaBannerView ()
 @property (nonatomic, strong) UIPageControl *pageControl; /**<  下方显示页数   **/
 @property (nonatomic, strong) UIScrollView *ninaScrollView; /**<  轮播图   **/
+@property (nonatomic, strong) NSTimer *myTimer; /**<  定时器   **/
 @end
 //全屏宽和高大小
 #define FUll_VIEW_WIDTH ([[UIScreen mainScreen] bounds].size.width)
@@ -24,8 +25,8 @@
     CGFloat SELFWIDTH;
     CGFloat SELFHEIGHT;
     NSInteger totalNumber;
-    NSTimer *myTimer;
-    NSTimer *yourTimer;
+//    NSTimer *myTimer;
+//    NSTimer *yourTimer;
     NSInteger currentPage;
     NSInteger isScrollHori;
     NSMutableArray *bannerImageArray;
@@ -57,7 +58,7 @@
             _ninaScrollView.contentOffset = CGPointMake(0,SELFHEIGHT);
             _ninaScrollView.showsVerticalScrollIndicator = NO;
             _ninaScrollView.alwaysBounceVertical = YES;
-            _ninaScrollView.delaysContentTouches = NO;
+//            _ninaScrollView.delaysContentTouches = NO;
             isScrollHori = 3;
         }
         if (bannerSource == 0) {
@@ -126,6 +127,7 @@
             loopLabel.textColor = [UIColor brownColor];
             loopLabel.textAlignment = NSTextAlignmentCenter;
             loopLabel.font = [UIFont systemFontOfSize:14];
+            loopLabel.userInteractionEnabled = YES;
             [bannerImageView addSubview:loopLabel];
             if (i == 0) {
                 if (bannerSource == 0) {
@@ -156,8 +158,9 @@
             [self.ninaScrollView addSubview:bannerImageView];
         }
     }
-    myTimer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(scrollAction) userInfo:nil repeats:YES];
-    [[NSRunLoop currentRunLoop] addTimer:myTimer forMode:NSDefaultRunLoopMode];
+    [self setupTimer:5.0];
+//    myTimer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(scrollAction) userInfo:nil repeats:YES];
+//    [[NSRunLoop currentRunLoop] addTimer:myTimer forMode:NSDefaultRunLoopMode];
 }
 
 #pragma mark - SetMethod
@@ -181,10 +184,9 @@
 }
 - (void)setTimeInterval:(CGFloat)timeInterval {
     _timeInterval = timeInterval;
-    if (myTimer) {
-        [myTimer invalidate];
-        myTimer = [NSTimer scheduledTimerWithTimeInterval:_timeInterval target:self selector:@selector(scrollAction) userInfo:nil repeats:YES];
-        [[NSRunLoop currentRunLoop] addTimer:myTimer forMode:NSDefaultRunLoopMode];
+    if (self.myTimer) {
+        [self.myTimer invalidate];
+        [self setupTimer:_timeInterval];
     }
 }
 - (void)setSummaryArray:(NSArray *)summaryArray {
@@ -231,7 +233,7 @@
         _ninaScrollView = [UIScrollView new];
         /**<  如果使用者没有设置这些属性,默认属性   **/
         _ninaScrollView.backgroundColor = [UIColor whiteColor];
-        _ninaScrollView.frame = self.frame;
+        _ninaScrollView.frame = CGRectMake(0, 0, SELFWIDTH, SELFHEIGHT);
         _ninaScrollView.userInteractionEnabled = YES;
         _ninaScrollView.pagingEnabled = YES;
         _ninaScrollView.delegate = self;
@@ -242,6 +244,7 @@
 
 #pragma mark - BtnAction
 - (void)scrollAction {
+    
     if (currentPage % (totalNumber + 1) != 0 || currentPage == 1) {
         if (isScrollHori == 2) {
             [self.ninaScrollView setContentOffset:CGPointMake(SELFWIDTH * (currentPage + 1), 0) animated:YES];
@@ -300,26 +303,22 @@
         if (horiPage == 0) {
             [scrollView setContentOffset:CGPointMake(0, totalNumber * SELFHEIGHT) animated:NO];
         }
-    }    
-    if (self.timeInterval > 0) {
-        for (NSInteger i = 1; i < (totalNumber + 2); i++) {
-            if (isScrollHori == 2) {
-                if (scrollView.contentOffset.x == i * SELFWIDTH) {
-                    [yourTimer invalidate];
-                    [myTimer invalidate];
-                    yourTimer = [NSTimer scheduledTimerWithTimeInterval:self.timeInterval target:self selector:@selector(scrollAction) userInfo:nil repeats:NO];
-                    [[NSRunLoop currentRunLoop] addTimer:yourTimer forMode:NSDefaultRunLoopMode];
-                }
-            }else if (isScrollHori == 3){
-                if (scrollView.contentOffset.y == i * SELFHEIGHT) {
-                    [yourTimer invalidate];
-                    [myTimer invalidate];
-                    yourTimer = [NSTimer scheduledTimerWithTimeInterval:self.timeInterval target:self selector:@selector(scrollAction) userInfo:nil repeats:NO];
-                    [[NSRunLoop currentRunLoop] addTimer:yourTimer forMode:NSDefaultRunLoopMode];
-                }
-            }
-        }
     }
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    if (self.myTimer) {
+        [self.myTimer invalidate];
+    }
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    if (self.timeInterval > 0) {
+        [self setupTimer:self.timeInterval];
+    }else {
+        [self setupTimer:5.0];
+    }
+    
 }
 
 #pragma mark - TapAction
@@ -330,6 +329,13 @@
         tapVC.urlStr = _bannerUrlArray[currentPage - 1];
         [self.viewController.navigationController pushViewController:tapVC animated:YES];
     }
+}
+
+#pragma mark - SetupTimer
+- (void)setupTimer:(CGFloat)timeInterval {
+    
+    self.myTimer = [NSTimer timerWithTimeInterval:timeInterval target:self selector:@selector(scrollAction) userInfo:nil repeats:YES];
+    [[NSRunLoop currentRunLoop] addTimer:self.myTimer forMode:NSDefaultRunLoopMode];
 }
 
 @end
