@@ -18,15 +18,11 @@
 //全屏宽和高大小
 #define FUll_VIEW_WIDTH ([[UIScreen mainScreen] bounds].size.width)
 #define FUll_VIEW_HEIGHT ([[UIScreen mainScreen] bounds].size.height)
-//十六进制颜色值
-#define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 @implementation NinaBannerView {
     CGFloat SELFWIDTH;
     CGFloat SELFHEIGHT;
     NSInteger totalNumber;
-//    NSTimer *myTimer;
-//    NSTimer *yourTimer;
     NSInteger currentPage;
     NSInteger isScrollHori;
     NSMutableArray *bannerImageArray;
@@ -35,7 +31,6 @@
 - (instancetype)initWithFrame:(CGRect)frame WithCycleStyle:(NinaCycleStyle)cycleStyle WithBannerSource:(NinaBannerSource)bannerSource WithBannerArray:(NSArray *)bannerArray {
     
     if (self = [super initWithFrame:frame]) {
-        
         SELFWIDTH = frame.size.width;
         SELFHEIGHT = frame.size.height;
         totalNumber = bannerArray.count;
@@ -58,7 +53,6 @@
             _ninaScrollView.contentOffset = CGPointMake(0,SELFHEIGHT);
             _ninaScrollView.showsVerticalScrollIndicator = NO;
             _ninaScrollView.alwaysBounceVertical = YES;
-//            _ninaScrollView.delaysContentTouches = NO;
             isScrollHori = 3;
         }
         if (bannerSource == 0) {
@@ -159,8 +153,6 @@
         }
     }
     [self setupTimer:5.0];
-//    myTimer = [NSTimer scheduledTimerWithTimeInterval:5.0 target:self selector:@selector(scrollAction) userInfo:nil repeats:YES];
-//    [[NSRunLoop currentRunLoop] addTimer:myTimer forMode:NSDefaultRunLoopMode];
 }
 
 #pragma mark - SetMethod
@@ -260,26 +252,6 @@
     }
 }
 
-- (void)scrollHoriAction {
-    
-    if (currentPage % (totalNumber + 1) != 0 || currentPage == 1) {
-        [self.ninaScrollView setContentOffset:CGPointMake(SELFWIDTH * (currentPage + 1), 0) animated:YES];
-    }
-    else if (currentPage % (totalNumber + 1) == 0 && currentPage != 1) {
-        [self.ninaScrollView setContentOffset:CGPointMake(SELFWIDTH, 0) animated:YES];
-    }
-}
-
-- (void)scrollVertiAction {
-    
-    if (currentPage % (totalNumber + 1) != 0 || currentPage == 1) {
-        [self.ninaScrollView setContentOffset:CGPointMake(0, SELFHEIGHT * (currentPage + 1)) animated:YES];
-    }
-    else if (currentPage % (totalNumber + 1) == 0 && currentPage != 1) {
-        [self.ninaScrollView setContentOffset:CGPointMake(0, SELFHEIGHT) animated:YES];
-    }
-}
-
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
  
@@ -306,6 +278,11 @@
     }
 }
 
+/**
+ *  监测到有拖动的动作时，暂停定时器。
+ *
+ *  @param scrollView 当前scrollView
+ */
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     if (self.myTimer) {
         [self.myTimer invalidate];
@@ -327,13 +304,19 @@
     if (_bannerUrlArray.count > 0) {
         TapViewController *tapVC = [TapViewController new];
         tapVC.urlStr = _bannerUrlArray[currentPage - 1];
-        [self.viewController.navigationController pushViewController:tapVC animated:YES];
+        if (tapVC.urlStr.length > 0) {
+            [self.viewController.navigationController pushViewController:tapVC animated:YES];
+        }
     }
 }
 
 #pragma mark - SetupTimer
+/**
+ *  启动定时器
+ *
+ *  @param timeInterval 定时器的时间间隔
+ */
 - (void)setupTimer:(CGFloat)timeInterval {
-    
     self.myTimer = [NSTimer timerWithTimeInterval:timeInterval target:self selector:@selector(scrollAction) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:self.myTimer forMode:NSDefaultRunLoopMode];
 }

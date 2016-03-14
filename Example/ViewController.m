@@ -73,7 +73,7 @@
                                @"第六张概要",
                                @"第七张概要"
                                ];
-    NinaBannerView *bannerView = [[NinaBannerView alloc] initWithFrame:CGRectMake(0, 50, FUll_VIEW_WIDTH, FUll_VIEW_HEIGHT / 8) WithCycleStyle:NinaCycleStyleVertical WithBannerSource:NinaBannerStyleOnlyTextSource WithBannerArray:textLoopArray];
+    NinaBannerView *bannerView = [[NinaBannerView alloc] initWithFrame:CGRectMake(0, 50, FUll_VIEW_WIDTH, FUll_VIEW_HEIGHT / 2) WithCycleStyle:NinaCycleStyleHorizontal WithBannerSource:NinaBannerStyleOnlyLocalSource WithBannerArray:myLocalArray];
     [self.view addSubview:bannerView];
     /**<  设置图片上的标题概要，如果不设置，默认不显示，此选项和是否显示pageControl在显示上可能会有冲突，所以在美观上面可能需要二者取一   **/
 //    bannerView.summaryArray = summaryArray;
