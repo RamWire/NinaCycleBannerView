@@ -3,12 +3,13 @@
 * 几行代码搞定广告轮播图，横向纵向均可，用法简单，支持网络及本地图片轮播，并支持相关的图片点击事件。
 
 ## <a id="横向展示 Horizontal Scroll"></a> 横向展示 Horizontal Scroll
-![(横向展示 Horizontal Scroll)](https://github.com/RamWire/NinaCycleBannerView/blob/master/Example/gifs/NinaCycleBannerView 3.gif) 
+![(横向展示 Horizontal Scroll)](https://github.com/RamWire/NinaCycleBannerView/blob/master/Example/gifs/NinaCycleBannerView3.gif) 
 * 可以选择是否显示下方的pagecontrol，颜色可调节
 
 ## <a id="纵向展示 Vertical Scroll"></a> 纵向展示 Vertical Scroll
 ![纵向展示 Vertical Scroll](https://github.com/RamWire/NinaCycleBannerView/blob/master/Example/gifs/NinaCycleBannerView2.gif)
-* 类似淘宝中间的轮播公告，以后会添加相关Label选项
+## <a id="纵向类似淘宝轮播头条滚动效果 TaoBaoTopNewsScroll Scroll"></a> 纵向类似淘宝轮播头条滚动效果 TaoBaoTopNewsScroll
+![纵向类似淘宝轮播头条滚动效果 TaoBaoTopNewsScroll](https://github.com/RamWire/NinaCycleBannerView/blob/master/Example/gifs/NinaCycleBannerView4.gif)
 
 ## Install
 - Download Zip from here,drag file '**NinaCycleBannerView**'to your project.
