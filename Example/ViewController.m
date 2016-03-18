@@ -77,10 +77,10 @@
     [self.view addSubview:bannerView];
     /**<  设置图片上的标题概要，如果不设置，默认不显示，此选项和是否显示pageControl在显示上可能会有冲突，所以在美观上面可能需要二者取一   **/
 //    bannerView.summaryArray = summaryArray;
-    /**<  设置轮播图的滚动时间，如果不设置，默认为5秒   **/
+    /**<  设置轮播图的滚动时间，如果不设置，默认为5秒；如果设置的图片数量为1，则此参数设置无效，默认一张不进行滚动   **/
     bannerView.timeInterval = 2.0;
-    /**<  设置是否显示pageControl，如果不设置，默认不显示   **/
-    bannerView.showPageControl = NO;
+    /**<  设置是否显示pageControl，如果不设置，默认不显示；如果设置的图片数量为1，则pageControl默认不显示   **/
+    bannerView.showPageControl = YES;
     /**<  如果是在Horizontal下，可以对pageControl的选中未选中颜色进行设置，如果不设置，默认current为白色，pageIndicatorTintColor为灰色   **/
     bannerView.currentPageIndicatorTintColor = [UIColor blackColor];
     bannerView.pageIndicatorTintColor = [UIColor yellowColor];

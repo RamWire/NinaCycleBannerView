@@ -152,7 +152,9 @@
             [self.ninaScrollView addSubview:bannerImageView];
         }
     }
-    [self setupTimer:5.0];
+    if (totalNumber > 1) {
+        [self setupTimer:5.0];
+    }
 }
 
 #pragma mark - SetMethod
@@ -176,7 +178,7 @@
 }
 - (void)setTimeInterval:(CGFloat)timeInterval {
     _timeInterval = timeInterval;
-    if (self.myTimer) {
+    if (self.myTimer && totalNumber > 1) {
         [self.myTimer invalidate];
         [self setupTimer:_timeInterval];
     }
@@ -284,18 +286,19 @@
  *  @param scrollView 当前scrollView
  */
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    if (self.myTimer) {
+    if (self.myTimer && totalNumber > 1) {
         [self.myTimer invalidate];
     }
 }
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-    if (self.timeInterval > 0) {
+    if (self.timeInterval > 0 && totalNumber > 1) {
         [self setupTimer:self.timeInterval];
     }else {
-        [self setupTimer:5.0];
+        if (totalNumber > 1) {
+            [self setupTimer:5.0];
+        }
     }
-    
 }
 
 #pragma mark - TapAction
