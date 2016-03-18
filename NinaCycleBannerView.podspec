@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'NinaCycleBannerView'
-  s.version  = '0.0.4'
+  s.version  = '0.0.5'
   s.license  = 'MIT'
   s.platform      = :ios, '7.1'
   s.summary  = 'A cycle banner View for iOS.'
