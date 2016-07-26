@@ -72,7 +72,7 @@
     
     if (cycleNum == 0) {
         for (NSInteger i = 0; i < (totalNumber + 2); i++) {
-            UIImageView *bannerImageView = [[UIImageView alloc] initWithFrame:CGRectMake(i * SELFWIDTH, 0, SELFWIDTH, SELFHEIGHT)];
+            UIImageView *bannerImageView = [[UIImageView alloc] initWithFrame:CGRectMake(i * SELFWIDTH - SELFWIDTH / 4, SELFHEIGHT / 4, SELFWIDTH / 2, SELFHEIGHT / 2)];
             bannerImageView.tag = i;
             bannerImageView.userInteractionEnabled = YES;
             bannerImageView.backgroundColor = [UIColor whiteColor];
